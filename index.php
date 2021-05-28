@@ -1,12 +1,3 @@
-<?php
-    // wahrscheinlichkeiten berechnen = möglichkeiten^länge
-    // BIP39 = 4096 Wörter = https://github.com/bitcoin/bips/blob/master/bip-0039/english.txt
-    // 36 möglichkeiten für character bei addy
-    // 36^2 = 1296 -> länge passt bei 2
-    // 36^3 = 46656 -> viel zu lang (4096 max)
-    // länge pro segment = 2
-?>
-
 <html>
     <form>
         <h1> Address to Words Converter: </h1>
