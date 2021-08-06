@@ -84,7 +84,7 @@
     }
 
     function getCharacterValue($target) {
-        $allowedChar = str_split("abcdefghijklmnopqrstuvwxyz01234567890ABCDEFGHIJKLMNOPQRSTUVWXYZ", 1); // len = 63
+        $allowedChar = str_split(" abcdefghijklmnopqrstuvwxyz01234567890ABCDEFGHIJKLMNOPQRSTUVWXYZ", 1); // len = 63
 
         $firstCharValue = 0;
         $temp_sum = -1;
@@ -99,24 +99,20 @@
             }
         }
         
-        $char = $allowedChar[$firstCharValue] .  $allowedChar[$target - $temp_sum];
+        @$char = $allowedChar[$firstCharValue] .  $allowedChar[$target - $temp_sum];
 
         return $char;
     }
 
     function getNumericalValue($target) {
 
-        $allowedChar = str_split("abcdefghijklmnopqrstuvwxyz01234567890ABCDEFGHIJKLMNOPQRSTUVWXYZ", 1); // len = 63
+        $allowedChar = str_split(" abcdefghijklmnopqrstuvwxyz01234567890ABCDEFGHIJKLMNOPQRSTUVWXYZ", 1); // len = 63
 
         for ($i = 0; $i < count($allowedChar); $i++) {
     
             if ($allowedChar[$i] == $target) {
                 return $i;
             }
-        }
-
-        if ($target == "") {
-            return 0;
         }
 
         return count($allowedChar) + 1;
