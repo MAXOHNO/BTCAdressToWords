@@ -9,7 +9,7 @@
     // *
     // ************************************************************************************************************
 
-    function bnce_decode($words, $passphrase) {
+    function bnce_decrypt($words, $passphrase) {
 
         // Declaration of Variables
         global $word_list;
@@ -72,7 +72,7 @@
         return $output;
     }
 
-    function bnce_encode($text, $passphrase) {
+    function bnce_encrypt($text, $passphrase) {
 
         // Declaration of Variables
         global $word_list;
@@ -120,6 +120,8 @@
     }
 
     function bnce_getCharacterValue($target) {
+
+
         $allowedChar = str_split(" abcdefghijklmnopqrstuvwxyz01234567890ABCDEFGHIJKLMNOPQRSTUVWXYZ.,-_+#äüöÜÄÖ!?", 1); // len = 76
 
         $firstCharValue = 0;

@@ -87,7 +87,7 @@
                             <?php
                                 if (isset($_POST["encode"])) {
                                     $pass = crc32( $_POST["key"] );
-                                    echo "<b> Result: </b> " . "<br>" . bnce_encode($_POST["text"], $pass);
+                                    echo "<b> Result: </b> " . "<br>" . bnce_encrypt($_POST["text"], $pass);
                                 }
                             ?>
                         </p>
@@ -108,7 +108,7 @@
                             <?php
                                 if (isset($_POST["decode"])) {
                                     $pass = crc32( $_POST["key"] );
-                                    echo "<b> Result: </b> " . "<br>" . bnce_decode($_POST["words"], $pass);
+                                    echo "<b> Result: </b> " . "<br>" . bnce_decrypt($_POST["words"], $pass);
                                 }
                             ?>
                         </p>
