@@ -1,123 +1,136 @@
-<html>
-    <form>
-        <h1> Address to Words Converter: </h1>
-        <input type="text" id="fname" name="addy" placeholder="Address">
-    </form>
+<?php
+    require("bnce_encryption.php");
+?>
 
-    <?php
-        if (isset($_GET["addy"]) && $_GET["addy"] != "") {
-            echo "<b> Result: </b> " . "<br>" . convertAddyToWords($_GET["addy"]);
+<html>
+    <style>
+        body {
+            font-family: Arial;
+            color: white;
         }
-    ?>
+
+        input {
+            margin-right: 10px;
+        }
+
+        td {
+            width: 40%;
+            float: top;
+        }
+
+        .half {
+            display: block;
+            width: 80%;
+            height: 100%;
+            background-color: #202020;
+
+            padding: 20px;
+
+            border-radius: 10px;
+
+            word-wrap: break-word;
+
+            
+
+        }
+
+        table {
+
+            width: 95%;
+            height: 80%;
+            padding-left: 5%;
+        }
+
+        input {
+            font-size: 20px;
+        }
+
+        p {
+            
+            display: block; /* or inline-block, at least its a block element */
+            width: 100%; /* or width is certain by parent element */
+            height: auto; /* height cannot be defined */
+            word-break: break-word; /*  */
+            word-wrap: break-word; /* if you want to cut the complete word */
+            white-space: normal; /* be sure its not 'nowrap'! ! ! :/ */
+
+            font-size: 20px;
+            
+        }
+
+        .mainfont {
+            font-family: Arial;
+            color: black;
+            font-weight: bold;
+        }
+        
+    </style>
+
+    <center>
+
+        <br>
+        <p style="font-size: 40px; padding: 0; margin: 0; margin-bottom: 20px; margin-top: 10px" class="mainfont"> Bats' Needlessly Complicated Encryption: </p>
+
+        <table cellspacing="0">
+            <tr>
+
+                <td>
+                    <div class="half" style=""> 
+                        <form method="post">
+                            <h1> BNCE Encode: </h1>
+                            <input type="text" name="text" placeholder="Normal Text" />
+                            <input type="text" name="key" placeholder="Passphrase" required />
+                            <input type="submit" name="encode" value="Encode" />
+                        </form>
+
+                        <p>
+                            <?php
+                                if (isset($_POST["encode"])) {
+                                    $pass = crc32( $_POST["key"] );
+                                    echo "<b> Result: </b> " . "<br>" . bnce_encode($_POST["text"], $pass);
+                                }
+                            ?>
+                        </p>
+
+                    </div>
+                </td>
+
+                <td>
+                    <div class="half" style=""> 
+                        <form method="post">
+                            <h1> BNCE Decode: </h1>
+                            <input type="text" name="words" placeholder="Encrypted Text" />
+                            <input type="text" name="key" placeholder="Passphrase" required />
+                            <input type="submit" name="decode" value="Decode" />
+                        </form>
+                        
+                        <p>
+                            <?php
+                                if (isset($_POST["decode"])) {
+                                    $pass = crc32( $_POST["key"] );
+                                    echo "<b> Result: </b> " . "<br>" . bnce_decode($_POST["words"], $pass);
+                                }
+                            ?>
+                        </p>
+
+                    </div>
+                </td>
+
+            </tr>
+        </table>
+
+    </center>
+
+    
 
     <br><br><br><br><br>
 
-    <form>
-        <h1> Words to Address Converter: </h1>
-        <input type="text" id="fname" name="words" placeholder="Words">
-    </form>
+    
 
-    <?php
-        if (isset($_GET["words"]) && $_GET["words"] != "") {
-            echo "<b> Result: </b> " . "<br>" . convertWordsToAddy($_GET["words"]);
-        }
-    ?>
 </html>
 
-
-
 <?php
-     $word_list = file('10kwords.txt');
-
-    function convertWordsToAddy($words) {
-
-        $word_list = file('10kwords.txt');
-
-        $words_split = explode(" ", $words);
-
-        $output = "";
-
-        for ($i = 0; $i < count($words_split); $i++) {
-
-            $line = 0;
-
-            for ($k = 0; $k < count($word_list); $k++) {
-
-                if ( substr_replace($word_list[$k] ,"", -2) == $words_split[$i]) {
-                    $line = $k;
-                }
-            }
-
-            $char = getCharacterValue($line);
-
-            $output = $output . $char;
-        }
-
-        return $output;
-    }
-
-    function convertAddyToWords($addy) {
-
-        $addy_split = str_split($addy, 2);
-        $output = "";
-
-        $word_list = file('10kwords.txt');
-
-        for ($i = 0; $i < count($addy_split); $i++) {
-
-            // ************** SPLITTING SEGMENTS INTO EVEN MORE SEGMENTS TO ADD LATER ***************
-            $addy_split_split = str_split($addy_split[$i], 1);
-
-            // ************** SEGMENTS TO NUMBER HASHING ***************
-            @$numericAddySegment = (getNumericalValue($addy_split_split[0]) * 75) + (getNumericalValue($addy_split_split[1]) * 1); 
-    
-            if ($numericAddySegment < 0) {
-                $outputWord = "@ERROR@";
-            } else {
-                $outputWord = $word_list[$numericAddySegment];
-            }
-            
-            $output = $output . " " . $outputWord;
-        }
-
-        return $output;
-    }
-
-    function getCharacterValue($target) {
-        $allowedChar = str_split(" abcdefghijklmnopqrstuvwxyz01234567890ABCDEFGHIJKLMNOPQRSTUVWXYZ", 1); // len = 63
-
-        $firstCharValue = 0;
-        $temp_sum = -1;
-
-        for ($i = 0; $i <= $target; $i += 75) {
-
-            $temp_sum = $i;
-
-            if ($i + 75 <= $target) {
-                $temp_sum = $i;
-                $firstCharValue++;   
-            }
-        }
-        
-        @$char = $allowedChar[$firstCharValue] .  $allowedChar[$target - $temp_sum];
-
-        return $char;
-    }
-
-    function getNumericalValue($target) {
-
-        $allowedChar = str_split(" abcdefghijklmnopqrstuvwxyz01234567890ABCDEFGHIJKLMNOPQRSTUVWXYZ", 1); // len = 63
-
-        for ($i = 0; $i < count($allowedChar); $i++) {
-    
-            if ($allowedChar[$i] == $target) {
-                return $i;
-            }
-        }
-
-        return count($allowedChar) + 1;
-
-    }
+     
 
 ?>
 
