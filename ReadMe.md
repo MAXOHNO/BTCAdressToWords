@@ -13,4 +13,4 @@
 bnce_encrypt($string_to_encrypt, $passphrase);
 bnce_decrypt($string_to_decrypt, $passphrase);
 ```
-Note: the input given to the passphrase has to be a integer.
+Note: the $passphrase has to be a integer.
