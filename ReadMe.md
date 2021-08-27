@@ -1,4 +1,4 @@
-# Example of the index.php
+# Bats' Needlessly Complicated Encryption (BNCE):
 Example of Encrypting and Decrypting with a correct Passphrase
 ![example gif](https://i.gyazo.com/28ff4dfd22c6f8c6ba1767e03cd6f46a.gif)
 
