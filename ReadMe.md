@@ -4,4 +4,3 @@ Example of Encrypting and Decrypting with a correct Passphrase
 
 Example of Encrypting and Decrypting with a incorrect Passphrase
 ![example gif](https://i.gyazo.com/a96ec0202ddcd9ec3780b8c69ef74656.gif)
-(obligatory don't send anything to the BTC Address, that was just the first one I found on google, better donate to charity)
