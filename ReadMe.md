@@ -9,7 +9,7 @@
 OR
 
 ```php
-require("https://raw.githubusercontent.com/MAXOHNO/Bats-Needlessly-Complicated-Encryption/main/bnce_encryption.php");
+require("https://raw.githubusercontent.com/batscs/Bats-Needlessly-Complicated-Encryption/main/bnce_encryption.php");
 ```
 ## Usage of BNCE
 To encrypt and decrypt use the following functions:
