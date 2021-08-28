@@ -12,9 +12,11 @@ Note: the $passphrase has to be a integer.
 
 You can also use:
 ```php
-bnce_getUniqueID();
+bnce_getUniqueID(); // to get a Unique ID of your compiled Encryption, based on the allowed Word List (alphabet, incase you change it to some other language), the included 10kwords.txt, incase you want to use other words to encrypt with, and the current Version of BNCE.
+
+bnce_getVersion(); // To get the current Version of BNCE, changes to the Version will (very) likely make older encrypted phrases invalid.
 ```
-to get a Unique ID of your compiled Encryption, based on the allowed Word List (alphabet, incase you change it to some other language), the included 10kwords.txt, incase you want to use other words to encrypt with, and the current Version of BNCE.
+
 
 ## Example of Front-End usage (index.php)
 #### Example of Encrypting and Decrypting with a correct Passphrase
