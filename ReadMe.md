@@ -4,13 +4,12 @@
 1. Download the bnce_encryption.php file.
 2. Import it into your project.
 3. To encrypt and decrypt use the following functions:
+4. Note: the $passphrase has to be a integer.
 ```php
 bnce_encrypt($string_to_encrypt, $passphrase);
 bnce_decrypt($string_to_decrypt, $passphrase);
 ```
-Note: the $passphrase has to be a integer.
 
-You can also use:
 ```php
 bnce_getUniqueID(); // to get a Unique ID of your compiled Encryption, based on the allowed Word List (alphabet, incase you change it to some other language), the included 10kwords.txt, incase you want to use other words to encrypt with, and the current Version of BNCE.
 
