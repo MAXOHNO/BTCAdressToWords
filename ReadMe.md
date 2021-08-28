@@ -1,5 +1,7 @@
 # Bats' Needlessly Complicated Encryption (BNCE):
 
+### The Encryption can be tested at haron.gay/max
+
 ## How to Use
 1. Download the bnce_encryption.php file.
 2. Import it into your project.
