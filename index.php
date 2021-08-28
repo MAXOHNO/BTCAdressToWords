@@ -6,7 +6,6 @@
     <style>
         body {
             font-family: Arial;
-            color: white;
         }
 
         input {
@@ -35,6 +34,8 @@
         }
 
         table {
+
+            color: white;
 
             width: 95%;
             height: 80%;
@@ -69,7 +70,8 @@
     <center>
 
         <br>
-        <p style="font-size: 40px; padding: 0; margin: 0; margin-bottom: 20px; margin-top: 10px" class="mainfont"> Bats' Needlessly Complicated Encryption: </p>
+        <p style="font-size: 35px; padding: 0; margin: 0; margin-top: 0px" class="mainfont"> Bats' Needlessly Complicated Encryption v<?php echo bnce_getVersion(); ?>: </p>
+        <p style="font-size: 30px; padding: 0; margin: 0; margin-bottom: 20px;" class="mainfont"> BNCE ID: #<?php echo bnce_getUniqueID(); ?> </p>
 
         <table cellspacing="0">
             <tr>
