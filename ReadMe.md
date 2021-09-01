@@ -1,4 +1,3 @@
-![bnce_explanation](https://user-images.githubusercontent.com/31670615/131717712-1873935a-a1ec-43a2-9504-5991360de16e.png)
 # Bats' Needlessly Complicated Encryption (BNCE):
 
 ### The Encryption can be tested at https://haron.gay/max
@@ -26,6 +25,7 @@ bnce_getUniqueID();
 bnce_getVersion();
 ```
 
+![bnce_explanation](https://user-images.githubusercontent.com/31670615/131717712-1873935a-a1ec-43a2-9504-5991360de16e.png)
 
 ## Example of Front-End usage (index.php)
 #### Example of Encrypting and Decrypting with a correct Passphrase
