@@ -1,3 +1,4 @@
+![bnce_explanation](https://user-images.githubusercontent.com/31670615/131717712-1873935a-a1ec-43a2-9504-5991360de16e.png)
 # Bats' Needlessly Complicated Encryption (BNCE):
 
 ### The Encryption can be tested at https://haron.gay/max
