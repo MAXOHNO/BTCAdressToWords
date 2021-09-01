@@ -25,7 +25,7 @@ bnce_getUniqueID();
 bnce_getVersion();
 ```
 
-![bnce_explanation](https://user-images.githubusercontent.com/31670615/131717712-1873935a-a1ec-43a2-9504-5991360de16e.png)
+![bnce_explanation](https://user-images.githubusercontent.com/31670615/131718259-dae1483e-d97e-4f98-b0ce-dcf609a89b15.png)
 
 ## Example of Front-End usage (index.php)
 #### Example of Encrypting and Decrypting with a correct Passphrase
