@@ -2,6 +2,18 @@
     require("bnce_encryption.php");
 ?>
 
+<script>
+    function copyToClipboard(elementID) {
+        var copyText = document.getElementById(elementID);
+
+        copyText.select();
+        copyText.setSelectionRange(0, 9999999999);
+
+        navigator.clipboard.writeText(copyText.value);
+
+    } 
+</script>
+
 <html>
     <style>
         body {
@@ -31,6 +43,18 @@
 
             
 
+        }
+
+        textarea {
+            width: 100%;
+            height: 70%;
+            background-color: #202020;
+            color: white;
+            font-size: 20;
+            resize: none;
+            overflow-y: scroll;
+            border: none;
+            
         }
 
         table {
@@ -70,7 +94,7 @@
     <center>
 
         <br>
-        <p style="font-size: 35px; padding: 0; margin: 0; margin-top: 0px" class="mainfont"> Bats' Needlessly Complicated Encryption v<?php echo bnce_getVersion(); ?>: </p>
+        <p style="font-size: 35px; padding: 0; margin: 0; margin-top: 0px" class="mainfont"> <a target="_blank" rel="noopener noreferrer" href="https://github.com/batscs/Bats-Needlessly-Complicated-Encryption"> Bats' Needlessly Complicated Encryption </a> v<?php echo bnce_getVersion(); ?>: </p>
         <p style="font-size: 30px; padding: 0; margin: 0; margin-bottom: 20px;" class="mainfont"> BNCE ID: #<?php echo bnce_getUniqueID(); ?> </p>
 
         <table cellspacing="0">
@@ -79,20 +103,21 @@
                 <td>
                     <div class="half" style=""> 
                         <form method="post">
-                            <h1> BNCE Encode: </h1>
+                            <h1> BNCE Encrypt: </h1>
                             <input type="text" name="text" placeholder="Normal Text" />
-                            <input type="text" name="key" placeholder="Passphrase" required />
-                            <input type="submit" name="encode" value="Encode" />
+                            <input type="text" name="key" placeholder="Passphrase (Optional)" />
+                            <input type="submit" name="encrypt" value="Encrypt" />
+                            <input onclick="copyToClipboard('encryptField')" type="button" name="decopy" value="Copy" />
                         </form>
 
-                        <p>
-                            <?php
-                                if (isset($_POST["encode"])) {
+                        <textarea id="encryptField"><?php
+
+                                if (isset($_POST["encrypt"])) {
                                     $pass = crc32( $_POST["key"] );
-                                    echo "<b> Result: </b> " . "<br>" . bnce_encrypt($_POST["text"], $pass);
+                                    echo bnce_encrypt($_POST["text"], $pass);
                                 }
-                            ?>
-                        </p>
+
+                        ?></textarea>
 
                     </div>
                 </td>
@@ -100,20 +125,21 @@
                 <td>
                     <div class="half" style=""> 
                         <form method="post">
-                            <h1> BNCE Decode: </h1>
+                            <h1> BNCE Decrypt: </h1>
                             <input type="text" name="words" placeholder="Encrypted Text" />
-                            <input type="text" name="key" placeholder="Passphrase" required />
-                            <input type="submit" name="decode" value="Decode" />
+                            <input type="text" name="key" placeholder="Passphrase (Optional)" />
+                            <input type="submit" name="decrypt" value="Decrypt" />
+                            <input onclick="copyToClipboard('decryptField')" type="button" name="decopy" value="Copy" />
                         </form>
                         
-                        <p>
-                            <?php
-                                if (isset($_POST["decode"])) {
+                        <textarea id="decryptField"><?php
+
+                                if (isset($_POST["decrypt"])) {
                                     $pass = crc32( $_POST["key"] );
-                                    echo "<b> Result: </b> " . "<br>" . bnce_decrypt($_POST["words"], $pass);
+                                    echo bnce_decrypt($_POST["words"], $pass);
                                 }
-                            ?>
-                        </p>
+
+                        ?></textarea>
 
                     </div>
                 </td>
