@@ -11,9 +11,9 @@
     // ************************************************************************************************************
 
     $word_list = file('10kwords.txt');  // feel free to change this, the file has to include a minimum of 10000 words seperated by lines, with a space at the end of each line!
-    $allowedChar = str_split(" abcdefghijklmnopqrstuvwxyz01234567890ABCDEFGHIJKLMNOPQRSTUVWXYZ.,-_+#äüöÜÄÖ!?", 1);  // Feel free to add your own characters, having too many can cause bugs,
+    $allowedChar = str_split("abcdefghijklmnopqrstuvwxyz01234567890ABCDEFGHIJKLMNOPQRSTUVWXYZ.,-_+#äüöÜÄÖ :/!?=;", 1);  // Feel free to add your own characters, having too many can cause bugs,
                                                                                                                     // theoretical limit is 130 ($charMultiplier), though it gets weirder the closer you get.
-    $charMultiplier = 130;  // At all times, keep this number higher than the amount of $allowedChar, otherwise the algorithm will get confused, we don't want that.   
+    $charMultiplier = 100;  // At all times, keep this number higher than the amount of $allowedChar, otherwise the algorithm will get confused, we don't want that.   
 
     // Calculates the unique combination of the $word_list and the $allowedChar, decryption might not work if it wasn't encrypted with the corresponding ID.
     function bnce_getUniqueID() {
@@ -25,7 +25,7 @@
 
     // Returns the current Version of the BNCE Encryption.
     function bnce_getVersion() {
-        $version = "2.0";
+        $version = "2.1";
 
         return $version;
     }
@@ -72,11 +72,19 @@
 
             // $outputWord is being assigned the numericTextSegment-th Word out of the Word List, and gets added to the final output.
             $outputWord = $word_list[$numericTextSegment];
-            $output = $output . " " . $outputWord;
+
+            // This small block is to prevent the output from starting with a space.
+            if ($output == "") {
+                $output = $outputWord;
+            } else {
+                // The space between words only gets added once there is a previous word in the string.
+                $output = $output . " " . $outputWord;
+            }
+            
         }
 
         // After all is done the final output is being returned to the caller.
-        return $output;
+        return preg_replace("/\r|\n/", "", $output);
     }
 
     function bnce_decrypt($words, $passphrase) {
