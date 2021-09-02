@@ -1,6 +1,6 @@
 # Bats' Needlessly Complicated Encryption (BNCE):
 
-## The Encryption can be tested at https://bnce.bats.li
+## The Encryption can be tested at https://bats.li/bnce
 
 ## How to Install BNCE
 1. Download the bnce_encryption.php file.
