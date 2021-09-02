@@ -28,22 +28,18 @@ bnce_getVersion();
 ## Using the API
 Encryption:
 ```php
-<?php
-    $json = file_get_contents('http://bnce.bats.li/api.php?encrypt=myString&pass=secret');
-    $obj = json_decode($json);
+$json = file_get_contents('http://bnce.bats.li/api.php?encrypt=myString&pass=secret');
+$obj = json_decode($json);
 
-    echo $obj->encrypted; // finales output, hier ist encrypteter text
-?>
+echo $obj->encrypted;
 ```
 
 Decryption:
 ```php
-<?php
-    $json = file_get_contents('http://bnce.bats.li/api.php?decrypt=norway%20avenue%20ebony%20captured&pass=secret');
-    $obj = json_decode($json);
+$json = file_get_contents('http://bnce.bats.li/api.php?decrypt=norway%20avenue%20ebony%20captured&pass=secret');
+$obj = json_decode($json);
 
-    echo $obj->decrypted; // finales output, hier ist encrypteter text
-?>
+echo $obj->decrypted;
 ```
 
 ![bnce_explanation](https://user-images.githubusercontent.com/31670615/131718259-dae1483e-d97e-4f98-b0ce-dcf609a89b15.png)
