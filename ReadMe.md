@@ -2,7 +2,7 @@
 
 ### The Encryption can be tested at https://bats.li/bnce
 
-## How to Install BNCE
+# How to Install BNCE
 1. Download the bnce_encryption.php file.
 2. Import it into your project.
 
@@ -11,7 +11,7 @@ OR
 ```php
 require("https://raw.githubusercontent.com/batscs/Bats-Needlessly-Complicated-Encryption/main/bnce_encryption.php");
 ```
-## Usage of BNCE
+# Usage of BNCE
 To encrypt and decrypt use the following functions:
 Note however that the $passphrase has to be a integer!
 ```php
