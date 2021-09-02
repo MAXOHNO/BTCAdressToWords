@@ -1,8 +1,8 @@
 # Bats' Needlessly Complicated Encryption (BNCE):
 
-### The Encryption can be tested at https://bats.li/bnce
+## The Encryption can be tested at https://bnce.bats.li
 
-# How to Install BNCE
+## How to Install BNCE
 1. Download the bnce_encryption.php file.
 2. Import it into your project.
 
@@ -11,7 +11,7 @@ OR
 ```php
 require("https://raw.githubusercontent.com/batscs/Bats-Needlessly-Complicated-Encryption/main/bnce_encryption.php");
 ```
-# Usage of BNCE
+## Usage of BNCE
 To encrypt and decrypt use the following functions:
 Note however that the $passphrase has to be a integer!
 ```php
@@ -23,6 +23,27 @@ You can also call the current Version of BNCE, you also can get a UniqueID Hash 
 ```php
 bnce_getUniqueID();
 bnce_getVersion();
+```
+
+## Using the API
+Encryption:
+```php
+<?php
+    $json = file_get_contents('http://bnce.bats.li/api.php?encrypt=myString&pass=secret');
+    $obj = json_decode($json);
+
+    echo $obj->encrypted; // finales output, hier ist encrypteter text
+?>
+```
+
+Decryption:
+```php
+<?php
+    $json = file_get_contents('http://bnce.bats.li/api.php?decrypt=norway%20avenue%20ebony%20captured&pass=secret');
+    $obj = json_decode($json);
+
+    echo $obj->decrypted; // finales output, hier ist encrypteter text
+?>
 ```
 
 ![bnce_explanation](https://user-images.githubusercontent.com/31670615/131718259-dae1483e-d97e-4f98-b0ce-dcf609a89b15.png)
