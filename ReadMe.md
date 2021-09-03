@@ -3,14 +3,13 @@
 ## The Encryption can be tested at https://bats.li/bnce
 
 ## How to Install BNCE
-1. Download the bnce_encryption.php file.
-2. Import it into your project.
+### Method 1 (Installing)
+1. Download the bnce_encryption.php and the 10kwords.txt file.
+2. Import both into your project.
 
-OR
+### Method 2 (API)
+Call the API from ```http://bnce.bats.li/api.php```
 
-```php
-require("https://raw.githubusercontent.com/batscs/Bats-Needlessly-Complicated-Encryption/main/bnce_encryption.php");
-```
 ## Usage of BNCE
 To encrypt and decrypt use the following functions:
 Note however that the $passphrase has to be a integer!
@@ -25,7 +24,7 @@ bnce_getUniqueID();
 bnce_getVersion();
 ```
 
-## Using the API
+## Usage of the API
 Encryption:
 ```php
 $json = file_get_contents('http://bnce.bats.li/api.php?encrypt=myString&pass=secret');
