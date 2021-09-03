@@ -3,7 +3,7 @@
 ## The Encryption can be tested at https://bats.li/bnce
 
 ## How to Install BNCE
-### Method 1 (Installing)
+### Method 1 (Importing)
 1. Download the bnce_encryption.php and the 10kwords.txt file.
 2. Import both into your project.
 
