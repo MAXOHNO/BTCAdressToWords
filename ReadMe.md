@@ -28,8 +28,8 @@ bnce_getVersion();
 ## Usage of the API
 Encryption:
 ```php
-$json = file_get_contents('http://bnce.bats.li/bnce/encrypt/myString/myPass/false');
-$json_alt = file_get_contents('http://bnce.bats.li/api.php?encrypt/myString/myPass/true');
+$json = file_get_contents('http://bats.li/bnce/encrypt/myString/myPass/false');
+$json_alt = file_get_contents('http://bats.li/bnce/encrypt/myString/myPass/true');
 $obj = json_decode($json);
 
 echo $obj->encrypted;
