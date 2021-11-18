@@ -50,6 +50,3 @@ echo $obj->decrypted;
 
 #### Example of Encrypting and Decrypting with a incorrect Passphrase
 ![example gif](https://i.gyazo.com/a96ec0202ddcd9ec3780b8c69ef74656.gif)
-
-![BNCE Explaination](https://user-images.githubusercontent.com/31670615/132025179-144a366f-d39e-4a46-a331-a4f06178f170.png)
-(picture below is outdated for v2.1)
