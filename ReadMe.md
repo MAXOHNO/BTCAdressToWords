@@ -46,7 +46,7 @@ echo $obj->decrypted;
 
 ## Example of Front-End usage (index.php)
 #### Example of Encrypting and Decrypting with a correct Passphrase
-![example gif](https://i.gyazo.com/28ff4dfd22c6f8c6ba1767e03cd6f46a.gif)
+![example gif](https://i.gyazo.com/f76a1b043764df1a4d61751e35d90be5.gif)
 
 #### Example of Encrypting and Decrypting with a incorrect Passphrase
-![example gif](https://i.gyazo.com/a96ec0202ddcd9ec3780b8c69ef74656.gif)
+![example gif](https://i.gyazo.com/59a8a5011a103ae05754d60589790df1.gif)
