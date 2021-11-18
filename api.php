@@ -7,38 +7,47 @@ require_once __DIR__ . '/bnce_encryption.php';
         function Select() {
 
             $response = array(
-                "pass" => "no_input",
-                "encrypted" => "no_output",
-                "decrypted" => "no_output",
-                "error" => "no_error",
+                "pass" => "",
+                "input" => "",
+                "numerical" => false,
             );
 
             if (isset($_GET["pass"])) {
-
-                $pass = crc32( $_GET["pass"] );
+                $pass = $_GET["pass"];
             } else {
-
-                $pass = crc32( "" );
+                $pass = "";
                 $response["error"] = "default_passphrase";
             }
+
+            $numerical = $_GET["numerical"];
+            if ($numerical == "true") {
+                $numerical = true;
+            } else {
+                $numerical = false;
+            }
+
+            $response["numerical"] = $numerical;
+            $response["pass"] = $pass;
             
             if (isset($_GET["encrypt"])) {
 
-                $encrypt = $_GET["encrypt"];
-                $encrypted = bnce_encrypt($encrypt, $pass);
+                $input = $_GET["encrypt"];
+                $response["input"] = $input;
 
-                $response["pass"] = $pass;
-                $response["encrypted"] = $encrypted;
+                $encrypted = bnce_encrypt($input, $pass, $response["numerical"]);
+
+                $response["output"] = $encrypted;
 
             }
 
             if (isset($_GET["decrypt"])) {
 
-                $decrypt = $_GET["decrypt"];
-                $decrypted = bnce_decrypt($decrypt, $pass);
+                $input = $_GET["decrypt"];
+                $response["input"] = $input;
 
-                $response["pass"] = $pass;
-                $response["decrypted"] = $decrypted;
+                $decrypted = bnce_decrypt($input, $pass, $response["numerical"]);
+
+                $response["output"] = $decrypted;
 
             }
             
