@@ -8,7 +8,7 @@
 2. Import both into your project.
 
 ### Method 2 (API)
-Call the API from ```http://bnce.bats.li/api.php```
+Call the API from `http://bats.li/bnce` (see below)
 
 ## Usage of BNCE
 To encrypt and decrypt use the following functions:
