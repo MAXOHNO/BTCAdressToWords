@@ -1,6 +1,6 @@
 # Bats' Needlessly Complicated Encryption (BNCE):
 
-## The Encryption can be tested at https://bats.li/bnce
+## The Encryption can be tested at https://bnce.bats.li
 
 ## How to Install BNCE
 ### Method 1 (Importing)
@@ -8,7 +8,7 @@
 2. Import both into your project.
 
 ### Method 2 (API)
-Call the API from `http://bats.li/bnce` (see below)
+Call the API from `http://bnce.bats.li` (see below)
 
 ## Usage of BNCE
 To encrypt and decrypt use the following functions:
